@@ -15,7 +15,7 @@ Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes 
 | max_bytes | `--max-bytes` | smoke=4096, baseline=1073741824, extended=1073741824 | 1073741824 | From Parameter list; see Execution Description With Parameters. |
 | step_factor | `--step-factor` | smoke=2, baseline=2, extended=2 | 2 | From Parameter list; see Execution Description With Parameters. |
 | warmup_iters | `--warmup-iters` | smoke=1, baseline=5, extended=10 | 5 | From Parameter list; see Execution Description With Parameters. |
-| num_iterations | `--num-iterations` | smoke=3, baseline=750, extended=2200 | 750 | From Parameter list; see Execution Description With Parameters. |
+| num_iterations | `--num-iterations` | smoke=3, baseline=489, extended=1720 | 489 | From Parameter list; see Execution Description With Parameters. |
 
 ## Invocation
 
@@ -38,7 +38,7 @@ sample_index,status,transfer_size_bytes,bandwidth_h2d_gbps,bandwidth_d2h_gbps,ba
 - **#4: H2D latency at min transfer size, us** — stored as `latency_h2d_us`.
 - **#5: D2H latency at min transfer size, us** — stored as `latency_d2h_us`.
 - **#6: D2D latency at min transfer size, us** — stored as `latency_d2d_us`.
-- **#7: Pageable ratio** — stored as `pinned_vs_pageable_bandwidth_ratio`.
+- **#7: Pinned-over-pageable H2D bandwidth ratio** — stored as `pinned_vs_pageable_bandwidth_ratio`.
 
 ## Framework
 

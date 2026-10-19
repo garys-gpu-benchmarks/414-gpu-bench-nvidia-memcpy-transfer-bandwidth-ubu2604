@@ -96,7 +96,7 @@ Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes 
 - #4: H2D latency at min transfer size, us (latency_h2d_us); is present and physically sensible.
 - #5: D2H latency at min transfer size, us (latency_d2h_us); is present and physically sensible.
 - #6: D2D latency at min transfer size, us (latency_d2d_us); is present and physically sensible.
-- #7: Pageable ratio (pinned_vs_pageable_bandwidth_ratio) is present and physically sensible.
+- #7: Pinned-over-pageable H2D bandwidth ratio (pinned_vs_pageable_bandwidth_ratio) is present and physically sensible.
 
 ## 3. Metrics Captured
 
@@ -106,7 +106,7 @@ Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes 
 - **#4: H2D latency at min transfer size, us** — stored as `latency_h2d_us`.
 - **#5: D2H latency at min transfer size, us** — stored as `latency_d2h_us`.
 - **#6: D2D latency at min transfer size, us** — stored as `latency_d2d_us`.
-- **#7: Pageable ratio** — stored as `pinned_vs_pageable_bandwidth_ratio`.
+- **#7: Pinned-over-pageable H2D bandwidth ratio** — stored as `pinned_vs_pageable_bandwidth_ratio`.
 
 ## 4. Hardware Requirements
 
@@ -196,7 +196,7 @@ Expected ranges and gates live in `config/benchmark_config.yaml` under `baseline
 Create cannot finish without `scripts/collect_workload.py`.
 
 **`self_check` overlay rewritten**
-Do not overwrite files listed in `results/overlay_lock.json`.
+`Locked overlay rewritten` means the sibling file and the `sha256` in `results/overlay_lock.json` disagree. The repair is to make `implementation_components/<component-id>/files/<path>`, the sibling path, and that digest the same bytes, then recheck with `create_one_workload.py --validate-only`. Do not replace the overlay with a new collector, and do not regenerate a non-empty sibling.
 
 **Remote SSH drop during setup**
 Reconnect and resume `bash setup.sh --assume-yes`. Do not wipe `.venv` or `.cache`.
