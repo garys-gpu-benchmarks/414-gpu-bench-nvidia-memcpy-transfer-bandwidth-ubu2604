@@ -2,7 +2,7 @@
 
 ## Execution Description
 
-Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. Each size always runs H2D, D2H, D2D, and H2D_pageable. device_id: GPU index. warmup_iters and num_iterations time cudaMemcpy with CUDA events. Sweep dimensions: device_id, direction, pinned_memory, min_bytes, max_bytes, step_factor, warmup_iters, num_iterations.
+Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. direction: all or a comma list of H2D, D2H, D2D; directions left out are reported blank. pinned_memory: true copies to and from cudaMallocHost buffers, false from malloc (pageable) buffers. Pinned and pageable H2D both run whenever H2D is selected, for the pinned-vs-pageable ratio. Sweep dimensions: device_id, direction, pinned_memory, min_bytes, max_bytes, step_factor, warmup_iters, num_iterations.
 
 ## Parameters
 
@@ -42,7 +42,7 @@ sample_index,status,transfer_size_bytes,bandwidth_h2d_gbps,bandwidth_d2h_gbps,ba
 
 ## Framework
 
-Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. Each size always runs H2D, D2H, D2D, and H2D_pageable. device_id: GPU index.
+Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. direction: all or a comma list of H2D, D2H, D2D; directions left out are reported blank. pinned_memory: true copies to and from cudaMallocHost buffers, false from malloc (pageable) buffers.
 
 ## Installation and Execution Summary
 
@@ -102,10 +102,10 @@ bash run_benchmark.sh --profile extended --validate
 2. `run.error_message` is NULL.
 3. `started_at` and `finished_at` are valid ISO-8601 UTC strings.
 4. All required aggregate metrics in `runs` are non-NULL and finite.
-5. All required aggregate metrics are physically sensible (positive values). Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. Each size always runs H2D, D2H, D2D, and H2D_pageable. device_id: GPU index.
+5. All required aggregate metrics are physically sensible (positive values). Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. direction: all or a comma list of H2D, D2H, D2D; directions left out are reported blank. pinned_memory: true copies to and from cudaMallocHost buffers, false from malloc (pageable) buffers.
 6. At least 2 sample rows exist for the latest `run_id` (sweep coverage).
 7. No sample has `status = 'error'`.
-8. Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. Each size always runs H2D, D2H, D2D, and H2D_pageable. device_id: GPU index.
+8. Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. direction: all or a comma list of H2D, D2H, D2D; directions left out are reported blank. pinned_memory: true copies to and from cudaMallocHost buffers, false from malloc (pageable) buffers.
 
 ### Baseline / Threshold configuration (`config/benchmark_config.yaml`)
 

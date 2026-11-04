@@ -25,6 +25,11 @@
     "value": "gpu-bench-nvidia-memcpy-transfer-bandwidth-ubu2604"
   },
   {
+    "field_name": "Repo Directory Name",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "414-gpu-bench-nvidia-memcpy-transfer-bandwidth-ubu2604"
+  },
+  {
     "field_name": "Main Goal",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "Measure H2D/D2H/D2D transfer bandwidth"
@@ -57,7 +62,7 @@
   {
     "field_name": "Execution Description With Parameters",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. Each size always runs H2D, D2H, D2D, and H2D_pageable. device_id: GPU index. warmup_iters and num_iterations time cudaMemcpy with CUDA events. yaml direction and pinned_memory are ignored; all four kinds run every size. Bandwidth is recorded at max_bytes and latency (time per copy) for H2D, D2H, and D2D at min_bytes"
+    "value": "Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. direction: all or a comma list of H2D, D2H, D2D; directions left out are reported blank. pinned_memory: true copies to and from cudaMallocHost buffers, false from malloc (pageable) buffers. Pinned and pageable H2D both run whenever H2D is selected, for the pinned-vs-pageable ratio. device_id: GPU index. warmup_iters and num_iterations time cudaMemcpy with CUDA events. Bandwidth is recorded at max_bytes and latency (time per copy) for H2D, D2H, and D2D at min_bytes"
   },
   {
     "field_name": "Execution Domain",
