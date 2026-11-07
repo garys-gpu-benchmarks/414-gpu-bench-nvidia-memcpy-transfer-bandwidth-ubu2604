@@ -16,12 +16,11 @@ capture_benchmark_run_command_submitted "$@"
 
 usage() {
   cat <<'USAGE'
+
 Usage: bash run_benchmark.sh [OPTIONS]
 
 Workload Name:          CUDA Memcpy Bandwidth Test (H2D, D2H, D2D).
 Main Goal:              Measure H2D/D2H/D2D transfer bandwidth.
-Validation Objective:   Validates positive bandwidth for every swept size. Metric #5 is a
-                        pinned/pageable ratio.
 Command Tools Executed: Compile cuda_memcpy.cu with nvcc; run bin/cuda_memcpy for H2D, D2H, D2D, and
                         H2D_pageable.
 

@@ -35,6 +35,11 @@
     "value": "Measure H2D/D2H/D2D transfer bandwidth"
   },
   {
+    "field_name": "Command Tools Executed",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Compile cuda_memcpy.cu with nvcc; run bin/cuda_memcpy for H2D, D2H, D2D, and H2D_pageable"
+  },
+  {
     "field_name": "Metrics",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "#1: H2D bandwidth at max transfer size, GB/s (bandwidth_h2d_gbps); #2: D2H bandwidth at max transfer size, GB/s (bandwidth_d2h_gbps); #3: D2D bandwidth at max transfer size, GB/s (bandwidth_d2d_gbps); #4: H2D latency at min transfer size, us (latency_h2d_us); #5: D2H latency at min transfer size, us (latency_d2h_us); #6: D2D latency at min transfer size, us (latency_d2d_us); #7: Pinned-over-pageable H2D bandwidth ratio (pinned_vs_pageable_bandwidth_ratio)"
@@ -140,16 +145,6 @@
     "value": "-"
   },
   {
-    "field_name": "Validation Objective",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Validates positive bandwidth for every swept size. Metric #5 is a pinned/pageable ratio"
-  },
-  {
-    "field_name": "Command Tools Executed",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Compile cuda_memcpy.cu with nvcc; run bin/cuda_memcpy for H2D, D2H, D2D, and H2D_pageable"
-  },
-  {
     "field_name": "run_benchmark Command Plus Options for Smoke Run (One minute or less)",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "bash run_benchmark.sh --smoke --validate --device-id 0 --direction all --pinned-memory true --min-bytes 1024 --max-bytes 268435456 --step-factor 2 --warmup-iters 1 --num-iterations 10"
@@ -163,6 +158,11 @@
     "field_name": "run_benchmark Command Plus Options for Extended Run (8 to 15 minutes)",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "bash run_benchmark.sh --extended --validate --device-id 0 --direction all --pinned-memory true --min-bytes 1024 --max-bytes 1073741824 --step-factor 2 --warmup-iters 10 --num-iterations 1720"
+  },
+  {
+    "field_name": "Validation Objective",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Validates positive bandwidth for every swept size. Metric #5 is a pinned/pageable ratio"
   },
   {
     "field_name": "Command Execution Details and Purpose",
