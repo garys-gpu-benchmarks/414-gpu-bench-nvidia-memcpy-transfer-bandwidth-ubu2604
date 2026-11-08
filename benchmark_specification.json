@@ -202,17 +202,17 @@
   {
     "field_name": "GPU Model",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "H100 SXM 80GB"
-  },
-  {
-    "field_name": "Raw Output Format",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "CSV with H2D, D2H, and D2D bandwidth and latency on each transfer-size row"
+    "value": "--"
   },
   {
     "field_name": "Primary Record Granularity",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "one row per transfer size. A single size is duplicated to two samples"
+  },
+  {
+    "field_name": "Raw Output Format",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "CSV with H2D, D2H, and D2D bandwidth and latency on each transfer-size row"
   },
   {
     "field_name": "Raw Output Example",
@@ -225,19 +225,19 @@
     "value": "bandwidth_h2d_gbps, bandwidth_d2h_gbps, bandwidth_d2d_gbps, latency_h2d_us, latency_d2h_us, latency_d2d_us, pinned_vs_pageable_host_memory_bandwidth_gb_s, pinned_vs_pageable_bandwidth_ratio"
   },
   {
-    "field_name": "Success Criteria",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "status=ok, the largest size has positive H2D, D2H, and D2D bandwidth, and the smallest size has latencies"
-  },
-  {
     "field_name": "Parser and Normalization Notes",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "Bandwidth columns are filled only on the largest-size row and latency (time per copy) only on the smallest-size row; other rows are blank, so each summary value is that single measurement. pinned_vs_pageable_host_memory_bandwidth_gb_s is the H2D pinned/pageable ratio. Per-size transcripts stay in the run directory"
   },
   {
+    "field_name": "Success Criteria",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "status=ok, the largest size has positive H2D, D2H, and D2D bandwidth, and the smallest size has latencies"
+  },
+  {
     "field_name": "Hardware Config",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "NVIDIA H100 SXM host (20+ vCPUs, 128+ GB RAM, local NVMe), 1x H100 SXM (80 GB HBM3, sm_90, 132 SMs)"
+    "value": "Cloud GPU host such as a RunPod Pod (20+ vCPUs, 128+ GB RAM, local NVMe), 1x NVIDIA data-center GPU (80+ GB HBM; model varies by provider)"
   },
   {
     "field_name": "GPU Architecture",

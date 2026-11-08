@@ -19,10 +19,10 @@ usage() {
 
 Usage: bash run_benchmark.sh [OPTIONS]
 
-Workload Name:          CUDA Memcpy Bandwidth Test (H2D, D2H, D2D).
-Main Goal:              Measure H2D/D2H/D2D transfer bandwidth.
+Workload Name:          CUDA Memcpy Bandwidth Test (H2D, D2H, D2D)
+Main Goal:              Measure H2D/D2H/D2D transfer bandwidth
 Command Tools Executed: Compile cuda_memcpy.cu with nvcc; run bin/cuda_memcpy for H2D, D2H, D2D, and
-                        H2D_pageable.
+                        H2D_pageable
 
 Profiles (default: --smoke):
   --smoke                       Run smoke profile
