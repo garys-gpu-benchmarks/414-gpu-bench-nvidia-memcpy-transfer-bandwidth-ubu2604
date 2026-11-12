@@ -27,14 +27,14 @@ Compile cuda_memcpy.cu with nvcc; run bin/cuda_memcpy for H2D, D2H, D2D, and H2D
 
 CSV with H2D, D2H, and D2D bandwidth and latency on each transfer-size row
 
-sample_index,status,transfer_size_bytes,bandwidth_h2d_gbps,bandwidth_d2h_gbps,bandwidth_d2d_gbps,latency_h2d_us,latency_d2h_us,latency_d2d_us,pinned_vs_pageable_host_memory_bandwidth_gb_s,pinned_vs_pageable_bandwidth_ratio,error_message
+sample_index,status,transfer_size_bytes,bandwidth_h2d_gb_s,bandwidth_d2h_gb_s,bandwidth_d2d_gb_s,latency_h2d_us,latency_d2h_us,latency_d2d_us,pinned_vs_pageable_host_memory_bandwidth_gb_s,pinned_vs_pageable_bandwidth_ratio,error_message
 0,ok,268435456,25,24,700,8,9,2,20,1.4,
 
 ## Metrics
 
-- **#1: H2D bandwidth at max transfer size, GB/s** — stored as `bandwidth_h2d_gbps`.
-- **#2: D2H bandwidth at max transfer size, GB/s** — stored as `bandwidth_d2h_gbps`.
-- **#3: D2D bandwidth at max transfer size, GB/s** — stored as `bandwidth_d2d_gbps`.
+- **#1: H2D bandwidth at max transfer size, GB/s** — stored as `bandwidth_h2d_gb_s`.
+- **#2: D2H bandwidth at max transfer size, GB/s** — stored as `bandwidth_d2h_gb_s`.
+- **#3: D2D bandwidth at max transfer size, GB/s** — stored as `bandwidth_d2d_gb_s`.
 - **#4: H2D latency at min transfer size, us** — stored as `latency_h2d_us`.
 - **#5: D2H latency at min transfer size, us** — stored as `latency_d2h_us`.
 - **#6: D2D latency at min transfer size, us** — stored as `latency_d2d_us`.
@@ -85,7 +85,7 @@ BENCHMARK_DB=tests/fixtures/benchmark.db \
 
 CSV with H2D, D2H, and D2D bandwidth and latency on each transfer-size row
 
-sample_index,status,transfer_size_bytes,bandwidth_h2d_gbps,bandwidth_d2h_gbps,bandwidth_d2d_gbps,latency_h2d_us,latency_d2h_us,latency_d2d_us,pinned_vs_pageable_host_memory_bandwidth_gb_s,pinned_vs_pageable_bandwidth_ratio,error_message
+sample_index,status,transfer_size_bytes,bandwidth_h2d_gb_s,bandwidth_d2h_gb_s,bandwidth_d2d_gb_s,latency_h2d_us,latency_d2h_us,latency_d2d_us,pinned_vs_pageable_host_memory_bandwidth_gb_s,pinned_vs_pageable_bandwidth_ratio,error_message
 0,ok,268435456,25,24,700,8,9,2,20,1.4,
 
 ```bash
