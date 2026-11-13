@@ -1,0 +1,28 @@
+# Results: 414 CUDA Memcpy Bandwidth Test (H2D, D2H, D2D)
+
+**Main goal:** Measure H2D/D2H/D2D transfer bandwidth  
+**Tools:** Compile cuda_memcpy.cu with nvcc; run bin/cuda_memcpy for H2D, D2H, D2D, and H2D_pageable
+
+Reference results measured by the maintainer on the system shown in each section (generator TEMPLATE_00_138 · recorded 2026-11-12). Your own runs write `results/RESULTS_ACTUAL.md` in the same format.
+
+> Smoke runs use deliberately small sizes. They check that the workload installs and runs end to end; their numbers are not performance results. Baseline and extended are.
+
+<!-- profile:smoke -->
+## smoke
+
+- **System:** 1× NVIDIA H100 80GB HBM3 (81559 MiB) · Intel(R) Xeon(R) Platinum 8470 · Ubuntu 26.04.1 LTS · kernel 6.8.0-147-generic · driver 595.91.07
+- **Run:** 2026-11-12T23:00:49Z · status **PASS** (exit 0)
+- **Time (mm:ss):** setup 00:36 · benchmark 00:42 · whole run 01:27
+- **Source:** run 414_20261112_230049
+- **Command:** `bash run_benchmark.sh --smoke --device-id 0 --direction all --pinned-memory true --min-bytes 1024 --max-bytes 268435456 --step-factor 2 --warmup-iters 1 --num-iterations 10`
+
+| # | Metric | Result |
+|---|---|---|
+| 1 | H2D bandwidth at max transfer size, GB/s (bandwidth_h2d_gb_s) | 51.504236 |
+| 2 | D2H bandwidth at max transfer size, GB/s (bandwidth_d2h_gb_s) | 55.223778 |
+| 3 | D2D bandwidth at max transfer size, GB/s (bandwidth_d2d_gb_s) | 1498.179745 |
+| 4 | H2D latency at min transfer size, us (latency_h2d_us) | 10.0096 |
+| 5 | D2H latency at min transfer size, us (latency_d2h_us) | 8.4384 |
+| 6 | D2D latency at min transfer size, us (latency_d2d_us) | 3.5808 |
+| 7 | Pinned-over-pageable H2D bandwidth ratio (pinned_vs_pageable_bandwidth_ratio) | 4.788322511529843 |
+<!-- /profile:smoke -->

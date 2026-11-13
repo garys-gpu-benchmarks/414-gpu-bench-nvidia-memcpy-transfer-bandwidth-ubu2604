@@ -40,6 +40,11 @@
     "value": "Compile cuda_memcpy.cu with nvcc; run bin/cuda_memcpy for H2D, D2H, D2D, and H2D_pageable"
   },
   {
+    "field_name": "Execution Description With Parameters",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. direction: all or a comma list of H2D, D2H, D2D; directions left out are reported blank. pinned_memory: true copies to and from cudaMallocHost buffers, false from malloc (pageable) buffers. Pinned and pageable H2D both run whenever H2D is selected, for the pinned-vs-pageable ratio. device_id: GPU index. warmup_iters and num_iterations time cudaMemcpy with CUDA events. Bandwidth is recorded at max_bytes and latency (time per copy) for H2D, D2H, and D2D at min_bytes"
+  },
+  {
     "field_name": "Metrics",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "#1: H2D bandwidth at max transfer size, GB/s (bandwidth_h2d_gb_s); #2: D2H bandwidth at max transfer size, GB/s (bandwidth_d2h_gb_s); #3: D2D bandwidth at max transfer size, GB/s (bandwidth_d2d_gb_s); #4: H2D latency at min transfer size, us (latency_h2d_us); #5: D2H latency at min transfer size, us (latency_d2h_us); #6: D2D latency at min transfer size, us (latency_d2d_us); #7: Pinned-over-pageable H2D bandwidth ratio (pinned_vs_pageable_bandwidth_ratio)"
@@ -173,11 +178,6 @@
     "field_name": "Command Methodology",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "Compile src/cuda_memcpy.cu with nvcc and run H2D, D2H, D2D, and H2D_pageable at each geometric size from min_bytes to max_bytes. Parse bandwidth and H2D latency, and record the pinned-to-pageable H2D ratio. yaml direction and pinned_memory do not restrict which copies run"
-  },
-  {
-    "field_name": "Execution Description With Parameters",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Builds src/cuda_memcpy.cu and sweeps transfer sizes from min_bytes to max_bytes by step_factor. direction: all or a comma list of H2D, D2H, D2D; directions left out are reported blank. pinned_memory: true copies to and from cudaMallocHost buffers, false from malloc (pageable) buffers. Pinned and pageable H2D both run whenever H2D is selected, for the pinned-vs-pageable ratio. device_id: GPU index. warmup_iters and num_iterations time cudaMemcpy with CUDA events. Bandwidth is recorded at max_bytes and latency (time per copy) for H2D, D2H, and D2D at min_bytes"
   },
   {
     "field_name": "Execution Domain",
